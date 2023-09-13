@@ -11,10 +11,18 @@
     <h1>Currency Converter</h1>
 
     <form id="currencyForm" method="post">
-        <label for="currencyOne">Curency One</label>
+        <label for="currencyAmount">Convert </label>
+        <input type="number" step="0.01" id="currencyAmount" name="currencyAmount">
         <select id="currencyOne" name = "currencyOne">
-            <% for(let i = 0; i < currencies.length; i++) { %>
-                <option value="<%= currencies[i] %>"><%= currencies[i] %></option>
+            <% for(let key in currencies) { %>
+                <option value="<%= key %>"><%= currencies[key] %> (<%= key %>)</option>
+            <% } %>
+        </select>
+
+        <label for="currencyTwo"> to </label>
+        <select id="currencyTwo" name = "currencyTwo">
+            <% for(let key in currencies) { %>
+                <option value="<%= key %>"><%= currencies[key] %> (<%= key %>)</option>
             <% } %>
         </select>
 
