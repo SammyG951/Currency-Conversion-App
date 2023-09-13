@@ -22,8 +22,26 @@ app.get('/', async (req, res) => {
 });
 
 app.post('/convert-currency', async(req, res) => {
-    console.log(req.body);
-    res.redirect('/');
+    try{
+        const request = {
+            amount: req.body.currencyAmount,
+            from: req.body.currencyOne,
+            to: req.body.currencyTwo,
+        }
+        console.log(request);
+        const currencies = await axios.get(API_URL + '/currencies');
+        const conversion = await axios.get(API_URL + '/latest', {
+            params: request,
+        });
+        const data = {
+            currencies: currencies.data,
+            conversion: conversion.data,
+        }
+        console.log(conversion.data);
+        res.render('index.ejs', data);
+    } catch {
+
+    }
 });
 
 app.listen(port, () => {

@@ -29,5 +29,8 @@
         <input id="submit" type="submit" value="Convert" formaction="/convert-currency">
     </form>
     
+    <% if (locals.conversion) { %>
+        <h3> <%= conversion %> </h3>
+    <% } %>
 </body>
 </html>
