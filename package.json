@@ -1,0 +1,15 @@
+{
+  "name": "exchange-rate-app",
+  "version": "1.0.0",
+  "description": "Exchange rate conversion app using frankfurter API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "temp"
+  },
+  "author": "Samuel Gonzalez III",
+  "license": "ISC"
+}
