@@ -9,6 +9,15 @@
 <body>
 
     <h1>Currency Converter</h1>
+
+    <form id="currencyForm" method="post">
+        <label for="currencyOne">Curency One</label>
+        <select id="currencyOne" name = "currencyOne">
+            <% for(let i = 0; i < currencies.length; i++) { %>
+                <option value="<%= currencies[i] %>"><%= currencies[i] %></option>
+            <% } %>
+        </select>
+    </form>
     
 </body>
 </html>
