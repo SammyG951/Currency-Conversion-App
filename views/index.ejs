@@ -30,7 +30,11 @@
     </form>
     
     <% if (locals.conversion) { %>
-        <h3> <%= conversion %> </h3>
+        <h3><%= conversion.amount %> <%= conversion.base %> equates to  
+        <% for (let currency in conversion.rates) { %>
+            <%= conversion.rates[currency].toFixed(2); %> <%= currency %>
+        <% } %>
+        </h3>
     <% } %>
 </body>
 </html>
