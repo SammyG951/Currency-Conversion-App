@@ -4,30 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curency Converter</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <h1>Currency Converter</h1>
+    <div class="container my-5">
+        <div class="d-flex justify-content-center">
+            <h1>Currency Converter</h1>
+        </div>
+    </div>
 
-    <form id="currencyForm" method="post">
-        <label for="currencyAmount">Convert </label>
-        <input type="number" step="0.01" id="currencyAmount" name="currencyAmount">
-        <select id="currencyOne" name = "currencyOne">
-            <% for(let key in currencies) { %>
-                <option value="<%= key %>"><%= currencies[key] %> (<%= key %>)</option>
-            <% } %>
-        </select>
-
-        <label for="currencyTwo"> to </label>
-        <select id="currencyTwo" name = "currencyTwo">
-            <% for(let key in currencies) { %>
-                <option value="<%= key %>"><%= currencies[key] %> (<%= key %>)</option>
-            <% } %>
-        </select>
-
-        <input id="submit" type="submit" value="Convert" formaction="/convert-currency">
-    </form>
+    <div class="container">
+        <div class="card mx-auto p-2 text-center">
+            <div class="card-body">
+                <form class="d-inline-block" id="currencyForm" method="post">
+                    <label class="form-label" for="currencyAmount">Convert </label>
+                    <input class="form-control" type="number" step="0.01" id="currencyAmount" name="currencyAmount">
+                    <select class="form-control mt-1" id="currencyOne" name = "currencyOne">
+                        <% for(let key in currencies) { %>
+                            <option value="<%= key %>"><%= currencies[key] %> (<%= key %>)</option>
+                        <% } %>
+                    </select>
+            
+                    <label for="currencyTwo"> to </label>
+                    <select class="form-control" id="currencyTwo" name = "currencyTwo">
+                        <% for(let key in currencies) { %>
+                            <option value="<%= key %>"><%= currencies[key] %> (<%= key %>)</option>
+                        <% } %>
+                    </select>
+            
+                    <input class="btn btn-primary mt-1" id="submit" type="submit" value="Convert" formaction="/convert-currency">
+                </form>
+            </div>
+        </div>
+    </div>
     
     <% if (locals.conversion) { %>
         <h3><%= conversion.amount %> <%= conversion.base %> equates to  
