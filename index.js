@@ -31,7 +31,7 @@ app.get('/', async (req, res) => {
     }
 });
 
-// On submit use axios to retrieve list of currencies and conversion from given input, then render and pass data to index.ejs
+// On submit use axios to retrieve conversion from given input, then render and pass data to index.ejs
 app.post('/convert-currency', async(req, res) => {
     try{
         const request = {
