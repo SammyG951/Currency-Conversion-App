@@ -13,8 +13,10 @@
 <body>
 
     <div class="container my-5">
-        <div class="d-flex justify-content-center">
-            <h1>Currency Converter</h1>
+        <div class="card mx-auto p-2 text-center headerCard">
+            <div class="card-body">
+                <h1>Currency Converter</h1>
+            </div>
         </div>
     </div>
 
@@ -44,11 +46,18 @@
     </div>
     
     <% if (locals.conversion) { %>
-        <h3><%= conversion.amount %> <%= conversion.base %> equates to  
-        <% for (let currency in conversion.rates) { %>
-            <%= conversion.rates[currency].toFixed(2); %> <%= currency %>
-        <% } %>
-        </h3>
+        <div class="container my-5">
+            <div class="card mx-auto p-2 text-center">
+                <div class="card-body">
+                    <h3><%= conversion.amount %> <%= conversion.base %> equates to  
+                        <% for (let currency in conversion.rates) { %>
+                            <%= conversion.rates[currency].toFixed(2); %> <%= currency %>
+                        <% } %>
+                        </h3>
+                </div>
+            </div>
+        </div>
+
     <% } %>
 </body>
 </html>

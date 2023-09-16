@@ -1,3 +1,22 @@
 .card {
     width: 50%;
 }
+
+.headerCard {
+    background-color: #6D9886;
+    color: whitesmoke;
+}
+
+body {
+    background-color: #F4F4F4;
+}
+
+.btn-primary {
+    background-color: #6D9886;
+    border-color: #6D9886;
+}
+
+.btn-primary:hover{
+    background-color: #80B39E;
+    border-color: #80B39E;
+}
