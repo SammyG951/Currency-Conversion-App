@@ -2,13 +2,20 @@ import express from "express";
 import axios from "axios";
 import bodyParser from "body-parser";
 
+// Creating express app
 const app = express();
+
+// Setting port number and api url
 const port = 3000;
 const API_URL = 'https://www.frankfurter.app';
 
+// Setting public folder for static files
 app.use(express.static('public'));
+
+// Initializing body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Use axios to retrieve list of available currencies, then render and pass data to index.ejs
 app.get('/', async (req, res) => {
     try {
         const response = await axios.get(API_URL + '/currencies');
@@ -21,6 +28,7 @@ app.get('/', async (req, res) => {
     }
 });
 
+// On submit use axios to retrieve list of currencies and conversion from given input, then render and pass data to index.ejs
 app.post('/convert-currency', async(req, res) => {
     try{
         const request = {
@@ -44,6 +52,7 @@ app.post('/convert-currency', async(req, res) => {
     }
 });
 
+// Listen on predefined port to start the server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
