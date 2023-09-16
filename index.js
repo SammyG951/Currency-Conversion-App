@@ -16,8 +16,8 @@ app.get('/', async (req, res) => {
             currencies: response.data,
         }
         res.render('index.ejs', data);
-    } catch {
-        
+    } catch(e) {
+        console.log(e.response.data);
     }
 });
 
@@ -40,7 +40,7 @@ app.post('/convert-currency', async(req, res) => {
         console.log(conversion.data);
         res.render('index.ejs', data);
     } catch {
-
+        console.log(e.response.data);
     }
 });
 
