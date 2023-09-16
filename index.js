@@ -9,6 +9,8 @@ const app = express();
 const port = 3000;
 const API_URL = 'https://www.frankfurter.app';
 
+let currencies;
+
 // Setting public folder for static files
 app.use(express.static('public'));
 
@@ -19,8 +21,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', async (req, res) => {
     try {
         const response = await axios.get(API_URL + '/currencies');
+        currencies = response.data;
         const data = {
-            currencies: response.data,
+            currencies: currencies,
         }
         res.render('index.ejs', data);
     } catch(e) {
@@ -37,12 +40,11 @@ app.post('/convert-currency', async(req, res) => {
             to: req.body.currencyTwo,
         }
         console.log(request);
-        const currencies = await axios.get(API_URL + '/currencies');
         const conversion = await axios.get(API_URL + '/latest', {
             params: request,
         });
         const data = {
-            currencies: currencies.data,
+            currencies: currencies,
             conversion: conversion.data,
         }
         console.log(conversion.data);
